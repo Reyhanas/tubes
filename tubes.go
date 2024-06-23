@@ -418,16 +418,16 @@ func sortingPertanyaan(Q *questions, qIndex int) {
 
 	//Selection Sort terpanjang ke terpendek
 	for i := 0; i < qIndex-1; i++ {
-		minIndex := i //ini harusnya maxIndex
+		maxIndex := i
 		for j := i + 1; j < qIndex; j++ {
-			if len(Q[j].content) > len(Q[minIndex].content) {
-				minIndex = j
+			if len(Q[j].content) > len(Q[maxIndex].content) {
+				maxIndex = j
 			}
 		}
 		// Swap the found minimum element with the element at index i
 		temp := Q[i]
-		Q[i] = Q[minIndex]
-		Q[minIndex] = temp
+		Q[i] = Q[maxIndex]
+		Q[maxIndex] = temp
 	}
 }
 
